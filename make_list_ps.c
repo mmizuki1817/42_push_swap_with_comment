@@ -6,14 +6,14 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/08 23:55:41 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/09 10:52:04 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "include/push_swap.h"
 
 /*
-bool coordinate_compression(int argc, t_stack **a)
+bool coordinate_compression(int argc)
 {
     int *num_cpy;
     int i;
@@ -62,11 +62,13 @@ t_stack *make_node(int num)
 
 // 引数を数字にする
 // 双方向循環リストの実装（stack aのnumにひとつづつ数字を入れていく）
-bool put_into_stack(int argc, char **argv)
+bool put_into_stack(int argc, char **argv, t_stack **a)
 {
     int i = 1;
   
-    t_stack *a = make_node(-1);// 番兵ノード数値は？？先にorderに負の値を入れてしまえばよいのでは？？
+    t_stack *a;
+    
+    a = make_node(-1);// 番兵ノード数値は？？先にorderに負の値を入れてしまえばよいのでは？？
     a->next = a;
     a->prev = a;
     a->order = -1;
@@ -100,9 +102,11 @@ bool put_into_stack(int argc, char **argv)
 
 bool make_list(int argc, char **argv)
 {
-    if (put_into_stack(argc, argv) == false)
+    t_stack **a;
+
+    if (put_into_stack(argc, argv, a) == false)
         return (false);
     //if (coordinate_compression(argc) == false) // 座標圧縮
-        return (false);
+    //    return (false);
     return (true);
 }
