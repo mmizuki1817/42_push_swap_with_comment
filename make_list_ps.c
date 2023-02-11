@@ -6,15 +6,45 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/10 21:26:03 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:33:50 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "include/push_swap.h"
 
+/*
+bool binary_search(int argc, int *num_cpy)
+{
+    //find_min_and_max();
+    int min;
+    int max;
+    int i;
 
+    // argc = 1はすでに除外されてる
+    // if (argc = 2)
+    // {
+        //whileにいれてもいいし、ここで特別な処理をしてもよいかも
+    // }
+    min = num_cpy[0];
+    max = num_cpy[0];
+    i = 1;
+    while (i < argc - 2)
+    {
+        if (max < num_cpy[i])
+            max = num_cpy[i];
+        if (min > num_cpy[i])
+            min = num_cpy[i];
+        i++;
+    }
+    
+
+    return (true);
+} */
+
+//座標圧縮
 bool coordinate_compression(int argc, t_stack *a)
 {
+    // 配列をコピー
     int *num_cpy;
     int i;
     t_stack *p;
@@ -37,6 +67,41 @@ bool coordinate_compression(int argc, t_stack *a)
         i++;
 
     }
+
+    //sort cpy
+    int tmp;
+    int j;
+    i = 0;
+    while (i < argc - 2)
+    {
+        j = i + 1;
+        while (j < argc - 1)
+        {
+            if (num_cpy[i] > num_cpy[j])
+            {
+                tmp = num_cpy[i];
+                num_cpy[i] = num_cpy[j];
+                num_cpy[j] = tmp;
+            }
+        j++;
+        }
+        i++;
+    }
+    //test
+    i = 0;
+    while (i < argc-1)
+    {
+        printf("order:num_cpy[%i]%i\n", i, num_cpy[i]);
+        i++;
+    }
+
+    // if (binary_search(argc, num_cpy) == false)
+    //     return(false);
+    //Aが「全体の中で何番目に小さいか」とは、Aが「数列 B
+ //の何番目の要素に相当するか」を意味する
+    
+    
+    
     return (true);
 }
 
@@ -109,5 +174,6 @@ bool make_list(int argc, char **argv)
     //printf("%i %i %i", a->num, a->next->num, a->next->next->num);
     if (coordinate_compression(argc, a) == false) // 座標圧縮
         return (false);
+    
     return (true);
 }
