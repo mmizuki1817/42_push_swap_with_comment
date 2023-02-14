@@ -6,27 +6,11 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 17:26:18 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/09 10:31:26 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/15 08:59:07 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "include/push_swap.h"
-
-// 要素数を数える
-// stack Aにいれながら（？）座標圧縮
-// 要素数に応じてぱたー？
-
-
-// 座標圧縮も入れていく
-
-
-
-/*
-// 座標圧縮
-{
-    // 昇順にソートする？
-    //二分探索
-}*/
 
 static void	error_print(void)
 {
@@ -34,29 +18,36 @@ static void	error_print(void)
 	exit(1);//
 }
 
-/*
-bool push_swap(int argc, char **argv)
+
+void push_and_swap(int argc, t_stack *a)
 {
     if (argc == 2)
-        return (true);
+        return ;
     if (argc == 3)
     {
-        num_count_two()
+        // ２つを比較
+        if (a->next->order < a->next->next)
+            return ;
+        else
+            swap_a();
     }
         
 
 
-}*/
+}
 
 int main(int argc, char **argv)
 {
+    t_stack *a;
+    
     if (error_check(argc, argv) == false)
         error_print();
-    if (make_list(argc, argv) == false)
+    a = make_list(argc, argv);
+    if (a == NULL)
         exit(1); //?
-    
-    // if (push_swap(argc, argv) == false)
-    //     exit(1);
+    push_and_swap(argc, a);
+
+    //free(a);
     ft_putstr_fd("true", 1);
 
 }
