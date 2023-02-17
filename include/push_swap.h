@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:09:04 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/14 20:17:43 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/17 23:18:16 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ int *cpy_a_num(int argc, t_stack *a);
 bool coordinate_compression(int argc, t_stack *a);
 
 // push_swap_ps
-void push_and_swap(int argc, t_stack *a);
+
+void push_and_swap(int argc, t_stack *a, t_stack *b);
+
+// push && swap && rotate && reverse_rotate
+void pa(t_stack *a, t_stack *b);
+void pb(t_stack *a, t_stack *b);
+void sa(t_stack *a);
+void sb(t_stack *b);
+void ra(t_stack *a);
+void rb(t_stack *b);
+
 
 #endif

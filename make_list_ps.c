@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/15 08:59:01 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/15 22:07:44 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ t_stack *put_into_stack(int argc, char **argv)
 
     a = make_node(-1);// 番兵ノード数値は？？先にorderに負の値を入れてしまえばよいのでは？？
     // 番兵ノードのnumにargcの値を入れたら毎回argc渡さないでよくなるの便利そう？
+    if (a == NULL)
+    {
+        //free();
+        return(NULL);
+    }
     a->next = a;
     a->prev = a;
     a->order = -1;
