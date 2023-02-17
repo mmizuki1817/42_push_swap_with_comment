@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 17:26:18 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/17 23:32:32 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/18 00:12:55 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,33 @@ void sort_three_random_num(t_stack *a)
 {
     // 3つの数字の大小を条件文で表す方法？
     // 123
-    if (a->next->num )
-
+    if (a->next->num < a->next->next->num && a->next->next->num < a->prev->num)
+        return ;
+    
     // 132
+    else if (a->next->num < a->prev->num && a->prev->num < a->next->next->num)
+    {
+        sa(a);
+        ra(a);
+    }
 
     // 213
+    else if (a->next->next->num < a->next->num && a->next->num < a->prev->num)
+        sa(a);
 
     // 231
+    // else if (a->prev->num < a->next->num && a->next->num < a->next->next->num)
+    //     //rra;
 
     // 312
+    else if (a->next->next->num < a->prev->num && a->prev->num < a->next->num)
+        ra(a);
 
     // 321
+    else // a->prev->num < a->next->next->num && a->next->next->num < a->next->num
+        sa(a);
+        //rra
+    return ;
     
 }
 
@@ -55,9 +71,25 @@ void less_than_six(int argc, t_stack *a, t_stack *b)
         else 
             ra(a);
     }
-    // // 残ったaを３つのルールでソート
-    // patarn_three
-    // // bをaにpushして戻す
+    // 残ったaを３つのルールでソート
+    sort_three_random_num(a);
+    
+    // bをaにpushして戻す
+    //if (argc == 5) //別の処理するかも？
+    if (argc == 6)
+    {
+        if (b->next->order > b->next->next->order)
+            sa(b);
+    }
+    //else if (argc == 7) 
+
+    b = b->next;
+    while (b->order != -1)
+    {
+        pa(a, b);     
+        b = b->next;  
+    }
+        
 }
 
 void push_and_swap(int argc, t_stack *a, t_stack *b)
@@ -114,13 +146,13 @@ int main(int argc, char **argv)
     //free(a);
     a = a->next;
     b = b->next;
-    printf("last\n");
+    printf("last\na:");
     while (a->order != -1)
     {
         printf("%i", a->num);
         a = a->next;
     }
-    printf("\n");
+    printf("\nb:");
     
     while (b->order != -1)
     {
