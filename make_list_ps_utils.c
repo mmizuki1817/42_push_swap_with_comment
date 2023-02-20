@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:53:44 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/17 21:56:16 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 01:50:52 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
     while (i < argc - 1)
     {
         target = a->num;
-        low = 0;
+        low = -1;
         high = argc - 1;
         while (low <= high)
         {
@@ -48,13 +48,13 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
         i++;
     }
     //test
-    i = 0;
-    while (i < argc)
-    {
-        //printf("%i", a->order);
-        a = a->next;
-        i++;
-    }
+    // i = 0;
+    // while (i < argc)
+    // {
+    //     printf("order:%i\n", a->order);
+    //     a = a->next;
+    //     i++;
+    // }
 }
 
 void sorting_cpy(int argc, int *num_cpy)
@@ -81,13 +81,13 @@ void sorting_cpy(int argc, int *num_cpy)
         i++;
     }
 
-    //test
-    i = 0;
-    while (i < argc-1)
-    {
-        //printf("num_cpy[%i]%i\n", i, num_cpy[i]);
-        i++;
-    }
+    // //test
+    // i = 0;
+    // while (i < argc-1)
+    // {
+    //     printf("num_cpy[%i]%i\n", i, num_cpy[i]);
+    //     i++;
+    // }
     return ;
 }
 

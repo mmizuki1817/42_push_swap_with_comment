@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 17:26:18 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/18 00:12:55 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:00:03 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,31 @@ static void	error_print(void)
 
 void sort_three_random_num(t_stack *a)
 {
-    // 3つの数字の大小を条件文で表す方法？
     // 123
     if (a->next->num < a->next->next->num && a->next->next->num < a->prev->num)
         return ;
-    
     // 132
     else if (a->next->num < a->prev->num && a->prev->num < a->next->next->num)
     {
         sa(a);
         ra(a);
     }
-
     // 213
     else if (a->next->next->num < a->next->num && a->next->num < a->prev->num)
         sa(a);
-
     // 231
-    // else if (a->prev->num < a->next->num && a->next->num < a->next->next->num)
-    //     //rra;
-
+    else if (a->prev->num < a->next->num && a->next->num < a->next->next->num)
+        rra(a);
     // 312
     else if (a->next->next->num < a->prev->num && a->prev->num < a->next->num)
         ra(a);
-
     // 321
     else // a->prev->num < a->next->next->num && a->next->next->num < a->next->num
+    {
         sa(a);
-        //rra
+        rra(a);
+    }    
     return ;
-    
 }
 
 void less_than_six(int argc, t_stack *a, t_stack *b)
@@ -71,18 +66,20 @@ void less_than_six(int argc, t_stack *a, t_stack *b)
         else 
             ra(a);
     }
+
     // 残ったaを３つのルールでソート
     sort_three_random_num(a);
     
-    // bをaにpushして戻す
+    // bをソート
     //if (argc == 5) //別の処理するかも？
     if (argc == 6)
     {
         if (b->next->order > b->next->next->order)
-            sa(b);
+            sb(b);
     }
     //else if (argc == 7) 
-
+    
+    // bをaにpushして戻す
     b = b->next;
     while (b->order != -1)
     {
@@ -166,5 +163,12 @@ int main(int argc, char **argv)
 }
 
 // 覚書
+// bug ./push_swap 1 2 3 -1
+// ./push_swap ならうまくいく。orderの順番がおかしくなる。座標圧縮のどっかがおかしい
+// -1, -2, 0のときおかしい
+// 多分binary serachが変
+// low = 0がおかしいのでは？->low=-1にしたら全部いけた。。。なぜ？
+// binary serach をちゃんと理解してから考えてほしい
+
 // 双方向循環リストのfreeの仕方がわからない。番兵ノードで判断できるはず。
 // a を参照するときは毎回NULLじゃないか確認する必要がありそう

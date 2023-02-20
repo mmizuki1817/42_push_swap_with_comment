@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:09:04 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/17 23:18:16 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 01:53:13 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void sa(t_stack *a);
 void sb(t_stack *b);
 void ra(t_stack *a);
 void rb(t_stack *b);
+void rra(t_stack *a);
+void rrb(t_stack *b);
 
 
 #endif

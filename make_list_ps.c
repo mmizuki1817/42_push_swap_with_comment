@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/15 22:07:44 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 01:51:13 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ t_stack *make_list(int argc, char **argv)
     //printf("%i %i %i", a->num, a->next->num, a->next->next->num);
     if (coordinate_compression(argc, a) == false) // 座標圧縮
         return (NULL);
-    
+    //printf("num:%i %i %i %i %i\n", a->num, a->next->num, a->next->next->num, a->next->next->next->num, a->next->next->next->next->num);
+    //printf("order:%i %i %i %i %i", a->order, a->next->order, a->next->next->order, a->next->next->next->order, a->next->next->next->next->order);
+    //exit(1);
     return (a);
 }
