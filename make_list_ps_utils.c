@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:53:44 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 01:50:52 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:32:18 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
     while (i < argc - 1)
     {
         target = a->num;
-        low = -1;
+        low = 0;
         high = argc - 1;
         while (low <= high)
         {

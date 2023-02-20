@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 01:51:13 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:49:54 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ t_stack *put_into_stack(int argc, char **argv)
     a->next = a;
     a->prev = a;
     a->order = -1;
+    
     t_stack *p = a;
-
     t_stack *tmp = NULL;
     while (i < argc)
     {

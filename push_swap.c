@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 17:26:18 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 02:00:03 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:49:39 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,46 +47,82 @@ void sort_three_random_num(t_stack *a)
     return ;
 }
 
+void sort_three_random_num_b(t_stack *b)
+{
+    // 123
+    if (b->next->num < b->next->next->num && b->next->next->num < b->prev->num)
+    {
+        sb(b);
+        rrb(b);
+    }  
+    // 132
+    else if (b->next->num < b->prev->num && b->prev->num < b->next->next->num)
+        rb(b);
+    
+    // 213
+    else if (b->next->next->num < b->next->num && b->next->num < b->prev->num)
+        rrb(b);
+    // 231
+    else if (b->prev->num < b->next->num && b->next->num < b->next->next->num)
+        sb(b);
+    
+    // 312
+    else if (b->next->next->num < b->prev->num && b->prev->num < b->next->num)
+    {
+        sb(b);
+        rb(b);
+    }
+    // 321
+    else // b->prev->num < b->next->next->num && b->next->next->num < b->next->num
+        return ;
+}
+
 void less_than_six(int argc, t_stack *a, t_stack *b)
 {
     int i;
-    int target;
+    int middle; //middleではない
+
+    //check
+    a = a->next;
+    printf("num\na:");
+    while (a->order != -1)
+    {
+        printf("%i", a->num);
+        a = a->next;
+    }
+    printf("\n");
 
     // aが3個になるまで、小さい数からbにpush
     i = 0;
-    target = 1;
+    middle = (argc - 1) / 2;
     while (i < argc - 4) 
     {
-        if (a->next->order == target) 
+        if (a->next->order <= middle) 
         {
             pb(a, b);
             i++;
-            target++;
         }
         else 
             ra(a);
     }
-
-    // 残ったaを３つのルールでソート
+    // 残ったaを３つのルールで昇順ソート
     sort_three_random_num(a);
     
-    // bをソート
-    //if (argc == 5) //別の処理するかも？
-    if (argc == 6)
-    {
-        if (b->next->order > b->next->next->order)
-            sb(b);
-    }
-    //else if (argc == 7) 
-    
+    // bを”降順”ソート
+    //if (argc == 5) //何もしない
+
+    if (argc == 6 && b->next->order < b->next->next->order)  
+        sb(b);
+    else if (argc == 7)
+        sort_three_random_num_b(b);
+ 
     // bをaにpushして戻す
-    b = b->next;
-    while (b->order != -1)
+    i = 0;
+    while (i < argc - 4)
     {
-        pa(a, b);     
-        b = b->next;  
-    }
-        
+        pa(a, b);
+        i++;       
+    }       
 }
 
 void push_and_swap(int argc, t_stack *a, t_stack *b)
@@ -114,9 +150,6 @@ void push_and_swap(int argc, t_stack *a, t_stack *b)
     // else
     //     return (more_than_seven());
     return ;
-        
-
-
 }
 
 int main(int argc, char **argv)
@@ -143,7 +176,7 @@ int main(int argc, char **argv)
     //free(a);
     a = a->next;
     b = b->next;
-    printf("last\na:");
+    printf("\na:");
     while (a->order != -1)
     {
         printf("%i", a->num);

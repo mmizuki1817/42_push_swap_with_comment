@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 23:11:57 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/17 23:19:16 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:03:24 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void sa(t_stack *a)
     tmp1->prev = a->next;
 
     ft_putstr_fd("sa\n", 1);
-    printf("sa:%i %i\n", a->next->num, a->next->next->num);
+    //printf("sa:%i %i\n", a->next->num, a->next->next->num);
 }
 
 void sb(t_stack *b)
@@ -47,5 +47,5 @@ void sb(t_stack *b)
     tmp1->prev = b->next;
 
     ft_putstr_fd("sb\n", 1);
-    printf("b:%i %i\n", b->next->num, b->next->next->num);
+    //printf("b:%i %i\n", b->next->num, b->next->next->num);
 }

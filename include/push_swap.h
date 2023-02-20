@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:09:04 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 01:53:13 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:49:51 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,16 @@ bool coordinate_compression(int argc, t_stack *a);
 void push_and_swap(int argc, t_stack *a, t_stack *b);
 
 // push && swap && rotate && reverse_rotate
-void pa(t_stack *a, t_stack *b);
+void pa(t_stack *a, t_stack *b); //ok
 void pb(t_stack *a, t_stack *b);
-void sa(t_stack *a);
+void sa(t_stack *a); //ok
 void sb(t_stack *b);
-void ra(t_stack *a);
+void ra(t_stack *a); //ok
 void rb(t_stack *b);
 void rra(t_stack *a);
 void rrb(t_stack *b);
 
 
 #endif
+
+// ./push_swap | grep -e "sa" -e "sb" -e "pa" -e "pb" -e "ra" -e "rb" -e "rra" -e "rrb"| wc -l
