@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:09:04 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 13:49:51 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:05:45 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ void binary_search(int argc, int *num_cpy, t_stack *a);
 void sorting_cpy(int argc, int *num_cpy);
 int *cpy_a_num(int argc, t_stack *a);
 bool coordinate_compression(int argc, t_stack *a);
+
+// less_than_six_ps
+void less_than_six(int argc, t_stack *a, t_stack *b);
+void sort_three_random_num(t_stack *a);
+void sort_three_random_num_b(t_stack *b);
+
 
 // push_swap_ps
 
