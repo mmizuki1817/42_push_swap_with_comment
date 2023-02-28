@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mizuki <mizuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:09:04 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 14:05:45 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:25:29 by mizuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct stack
 {
     int num;
     int order;
+    int group;
     struct stack *next;
     struct stack *prev;
 }t_stack;
@@ -49,6 +50,11 @@ void less_than_six(int argc, t_stack *a, t_stack *b);
 void sort_three_random_num(t_stack *a);
 void sort_three_random_num_b(t_stack *b);
 
+// more_than_seven_ps
+void sort_three_random_num_with_other_node(t_stack *a);
+void sort_less_than_three_with_other_node(t_stack *a);
+void devide_into_group(int argc, t_stack *a, t_stack *b);
+void more_than_seven(int argc, t_stack *a, t_stack *b);
 
 // push_swap_ps
 

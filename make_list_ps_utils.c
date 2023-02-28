@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 # include "include/push_swap.h"
 
 void binary_search(int argc, int *num_cpy, t_stack *a)
@@ -33,7 +34,10 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
         high = argc - 1;
         while (low <= high)
         {
-            middle = (low + high) / 2; 
+            middle = (low + high) / 2;
+            if (middle == 0) // 0はターゲットにはなり得ないので
+                middle = 1;
+            //printf("middle%i low%i high%i target%i\n", middle, low, high, target);
             if (num_cpy[middle - 1] == target)
             {
                 a->order = middle;
@@ -48,13 +52,13 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
         i++;
     }
     //test
-    // i = 0;
-    // while (i < argc)
-    // {
-    //     printf("order:%i\n", a->order);
-    //     a = a->next;
-    //     i++;
-    // }
+    i = 0;
+    while (i < argc)
+    {
+        printf("order:%i\n", a->order);
+        a = a->next;
+        i++;
+    }
 }
 
 void sorting_cpy(int argc, int *num_cpy)

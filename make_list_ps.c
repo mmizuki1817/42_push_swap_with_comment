@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_list_ps.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mizuki <mizuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 22:34:37 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 13:49:54 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:57:11 by mizuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_stack *make_node(int num)
     tmp->next = NULL;
     tmp->prev = NULL;
     tmp->order = 0;
+    tmp->group = -1;
     return (tmp);
 }
 
@@ -50,7 +51,7 @@ t_stack *put_into_stack(int argc, char **argv)
     a->next = a;
     a->prev = a;
     a->order = -1;
-    
+        
     t_stack *p = a;
     t_stack *tmp = NULL;
     while (i < argc)

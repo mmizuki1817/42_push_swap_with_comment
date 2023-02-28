@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   less_than_six_ps.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mizuki <mizuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:03:38 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 14:38:29 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:14:46 by mizuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@ void sort_three_random_num(t_stack *a)
         sa(a);
         ra(a);
     }
-    // 213
+    // 213 //
     else if (a->next->next->num < a->next->num && a->next->num < a->prev->num)
+    {
         sa(a);
-    // 231
+    }    
+    // 231 //
     else if (a->prev->num < a->next->num && a->next->num < a->next->next->num)
+    {
         rra(a);
+        
+    }
     // 312
     else if (a->next->next->num < a->prev->num && a->prev->num < a->next->num)
         ra(a);
