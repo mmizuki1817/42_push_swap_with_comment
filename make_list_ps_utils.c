@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_list_ps_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mizuki <mizuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:53:44 by mimatsub          #+#    #+#             */
-/*   Updated: 2023/02/20 11:32:18 by mimatsub         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:29:13 by mizuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void binary_search(int argc, int *num_cpy, t_stack *a)
         i++;
     }
     //test
-    i = 0;
-    while (i < argc)
-    {
-        printf("order:%i\n", a->order);
-        a = a->next;
-        i++;
-    }
+    // i = 0;
+    // while (i < argc)
+    // {
+    //     printf("order:%i\n", a->order);
+    //     a = a->next;
+    //     i++;
+    // }
 }
 
 void sorting_cpy(int argc, int *num_cpy)
